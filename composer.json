@@ -1,0 +1,12 @@
+{
+  "name": "IT328/dating",
+  "authors": [
+    {
+      "name": "Raj Dhaliwal",
+      "email": "Rdhaliwal6@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
