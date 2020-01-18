@@ -1,3 +1,12 @@
 body{
     background-color: #d26190;
+    font-family: 'Pacifico', cursive;
+}
+.pic{
+   margin-top: -35px;
+    width: 50%;
+}
+
+.about{
+    font-size: 15pt;
 }
