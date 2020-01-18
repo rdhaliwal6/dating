@@ -4,9 +4,16 @@ body{
 }
 .pic{
    margin-top: -35px;
+    margin-left: -20px;
     width: 50%;
 }
 
 .about{
     font-size: 15pt;
+}
+
+#button{
+   position: relative;
+    left: 200px;
+
 }
