@@ -1,19 +1,18 @@
 body{
-    background-color: #d26190;
+    /*background-color: #d26190;*/
     font-family: 'Pacifico', cursive;
 }
 .pic{
-   margin-top: -35px;
-    margin-left: -20px;
-    width: 50%;
+   /*margin-top: 30px;*/
+   /* margin-left: 15px;*/
+    width: 45%;
 }
 
 .about{
     font-size: 15pt;
 }
 
-#button{
-   position: relative;
-    left: 200px;
 
+#main {
+    border: solid black 2px;
 }
