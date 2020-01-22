@@ -4,11 +4,14 @@
 <!--* /328/dating/styles/dating.css-->
 <!--* stylesheet for the dating website-->
 <!--*/-->
+
+/*Body tag style, adds font and gray background*/
 body{
     background-color: #f8f9fa;
     font-family: 'Pacifico', cursive;
 }
 
+/*Styles for the image element*/
 img{
     height: 600px;
     width: 30%;
@@ -17,6 +20,7 @@ img{
     position: relative;
 }
 
+/*Styles for the fieldset*/
 fieldset{
     text-align: center;
     display: block;
@@ -29,6 +33,7 @@ fieldset{
     /*box-shadow: 5px 5px 5px 5px #6c757d;*/
 }
 
+/*styles for the quote div*/
 #quotes{
     width: 50%;
     margin-left: 10%;
