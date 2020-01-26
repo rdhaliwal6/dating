@@ -36,24 +36,58 @@
 <body>
 <!-- Adding navbar -->
 <nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">Dating PNW</span>
+    <a href="../dating" class="navbar-brand mb-0 h1">Dating PNW</a>
 </nav>
 
 <!--Creating the container div-->
 <div class="container-fluid" id="main">
     <!--Creating the form-->
-    <form action="Profile" method="post">
+    <form action="profile" method="post">
         <!--Creating a fieldset-->
         <fieldset class="form-group shadow rounded">
             <!--Creating a div to hold personal info-->
             <div>
-                <h1>Personal Information</h1>
-
-
+                <div class="form-check">
+                    <h1 class="text-left">Personal Info</h1>
+                </div>
+                <div class="form-check">
+                    <!--First Name-->
+                    <label for="first-name" class="float-left">First name<span class="text-danger err float-left" id="fName-err"></span></label>
+                    <input type="text" class="form-control required-input" id="first-name" name="first-name">
+                </div>
+                <div class="form-check">
+                    <!--Last Name-->
+                    <label for="last-name" class="float-left">Last name<span class="text-danger err float-left" id="lName-err"></span></label>
+                    <input type="text" class="form-control required-input" id="last-name" name="last-name">
+                </div>
+                <div class="form-check">
+                    <!-- Age -->
+                    <label class="float-left" for="age">Age<span class="text-danger err" id="age-err"></span></label>
+                    <input type="text" class="form-control required-input" name="age" id="age">
+                </div>
+                <div class="form-check">
+                    <!--Gender-->
+                    <label class="float-left">Gender</label>
+                    </br>
+                    <label class="radio-inline float-left">
+                    <input type="radio" name="optradio" checked>Male
+                    </label>
+                    <label class="radio-inline">
+                    <input type="radio" name="optradio">Female
+                    </label>
+                    <br>
+                </div>
+                <div class="form-check">
+                    <!--Phone Number-->
+                    <label class="float-left" for="phone">Phone number<span class="text-danger err" id="phone-err"></span></label>
+                    <input type="text" class="form-control required-input" name="phone-number" id="phone">
+                </div>
                 <!--Creating a button-->
-                <button type="submit" class="btn btn-primary btn-lg">
-                    Create a profile!
+                <div class="form-check">
+                <button type="submit" class="btn btn-primary btn-lg float-right">
+                    Next >
                 </button>
+                </div>
             </div>
         </fieldset>
     </form>
