@@ -24,5 +24,15 @@ $f3->route('POST /profile', function() {
     echo $view -> render('views/Profile.html');
 });
 
+$f3->route('POST /interest', function() {
+    $view = new Template();
+    echo $view -> render('views/Interests.html');
+});
+
+$f3->route('POST /summary', function() {
+    $view = new Template();
+    echo $view -> render('views/Summary.html');
+});
+
 //run fat free
 $f3 -> run();
