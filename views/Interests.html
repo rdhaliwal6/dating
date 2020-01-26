@@ -42,16 +42,18 @@
 <!--Creating the container div-->
 <div class="container-fluid" id="main">
     <!--Creating the form-->
-    <form action="interest" method="post">
+    <form action="summary" method="post">
         <!--Creating a fieldset-->
         <fieldset class="form-group shadow rounded">
             <!--Creating a div to hold personal info-->
             <div>
                 <div class="form-check text-left">
                     <h1 class="text-left">Interests</h1>
-                    <h4 class="float-left col-7 text-left">In-door Interests</h4>
-                    <br>
-                    <div class="form-check  float-left form-row">
+                    <hr>
+
+                    <div class="form-check form-row">
+                        <h4 class="row">In-door Interests</h4>
+                        <div>&nbsp;</div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
                             <label class="form-check-label" for="inlineCheckbox1">TV</label>
@@ -84,11 +86,12 @@
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="option8">
                             <label class="form-check-label" for="inlineCheckbox2">Video Games</label>
                         </div>
+                        <div>&nbsp;</div>
                     </div>
 
-                    <h4 class="float-left col-7 text-left">Out-door Interests</h4>
-                    <br>
                     <div class="form-check float-left form-row">
+                        <h4 class="row">Out-door Interests</h4>
+                        <div>&nbsp;</div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox11" value="option1">
                             <label class="form-check-label" for="inlineCheckbox1">Hiking</label>
@@ -115,7 +118,7 @@
                         </div>
                         </div>
                     <!--Creating a button-->
-                    <div class="form-check float-right">
+                    <div class="form-check float-right mt-5">
                         <button type="submit" class="btn btn-primary btn-lg">
                             Next >
                         </button>
