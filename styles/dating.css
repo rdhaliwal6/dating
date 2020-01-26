@@ -40,3 +40,12 @@ fieldset{
     /*box-shadow: 5px 5px 5px 5px #6c757d;*/
 }
 
+/*Style the p elements*/
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+
+/*style for blockquote footer*/
+/*.blockquote-footer{*/
+/*    margin-left: 10%;*/
+/*}*/
