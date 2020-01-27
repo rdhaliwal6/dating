@@ -52,19 +52,17 @@
                          alt="Default Profile Picture" style=" width: 200px;">
 
                     <h3 class="text-left">Biography</h3>
-                    <p class="text-left">Hi hello</p>
+                    <p class="text-left">{{ @SESSION.bio }}</p>
                 </div>
                 <ul class="ul list-group">
-                    <li class="list-group-item">Name: a
-                        a
-                    </li>
-                    <li class="list-group-item">Gender: Male</li>
-                    <li class="list-group-item">Age: 22</li>
-                    <li class="list-group-item">Phone: 2068028131</li>
-                    <li class="list-group-item">Email: eddy9371@hotmail.com</li>
-                    <li class="list-group-item">State: WA</li>
-                    <li class="list-group-item">Seeking: Male</li>
-                    <li class="list-group-item">Interests: Male</li>
+                    <li class="list-group-item">Name: {{ @SESSION.fName }} {{ @SESSION.lName }}</li>
+                    <li class="list-group-item">Gender: {{ @SESSION.gender }}</li>
+                    <li class="list-group-item">Age: {{ @SESSION.age }}</li>
+                    <li class="list-group-item">Phone: {{ @SESSION.phone }}</li>
+                    <li class="list-group-item">Email: {{ @SESSION.email }}</li>
+                    <li class="list-group-item">State: {{ @SESSION.state }}</li>
+                    <li class="list-group-item">Seeking: {{ @SESSION.seeking }}</li>
+                    <li class='list-group-item'>Interests: $interest</li>
                 </ul>
 
             </div>

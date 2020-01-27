@@ -1,4 +1,5 @@
 <?php
+session_start();
 //turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -21,16 +22,26 @@ $f3->route('POST /personal', function() {
 
 $f3->route('POST /profile', function() {
     $view = new Template();
+    $_SESSION['fName'] = $_POST['first-name'];
+    $_SESSION['lName'] = $_POST['last-name'];
+    $_SESSION['age'] = $_POST['age'];
+    $_SESSION['gender'] = $_POST['optradio'];
+    $_SESSION['phone'] = $_POST['phone-number'];
     echo $view -> render('views/Profile.html');
 });
 
 $f3->route('POST /interest', function() {
     $view = new Template();
+    $_SESSION['bio'] = $_POST['bio'];
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['state'] = $_POST['state'];
+    $_SESSION['seeking'] = $_POST['optradio'];
     echo $view -> render('views/Interests.html');
 });
 
 $f3->route('POST /summary', function() {
     $view = new Template();
+    $_SESSION['interests[]'] = $_POST['interest[]'];
     echo $view -> render('views/Summary.html');
 });
 

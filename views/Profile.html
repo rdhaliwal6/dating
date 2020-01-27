@@ -54,7 +54,7 @@
 
                 <div class="form-check float-right col-5">
                     <label for="exampleFormControlTextarea1" class="float-left">Biography</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="bio"></textarea>
                 </div>
 
                 <div class="form-check col-7 row-1">
@@ -65,8 +65,8 @@
 
 
                 <div class="form-group col-7">
-                    <label for="inputState" class="float-left">State</label>
-                    <select id="inputState" class="form-control">
+                    <label for="inputState" class="float-left" >State</label>
+                    <select id="inputState" class="form-control" name="state">
                         <option selected>Choose...</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
@@ -127,10 +127,10 @@
                     <label class="float-left">Seeking</label>
                     </br>
                     <label class="radio-inline float-left">
-                        <input type="radio" name="optradio" checked>Male
+                        <input type="radio" name="optradio" value="Male" checked>Male
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio">Female
+                        <input type="radio" name="optradio" value="Female">Female
                     </label>
                     <br>
                 </div>
