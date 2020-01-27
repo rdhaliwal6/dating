@@ -2,7 +2,7 @@
 <!--* Rajpreet Dhaliwal-->
 <!--* 1/16/20-->
 <!--* /328/dating/views/Summary.html-->
-<!--* home page of the dating website-->
+<!--* summary page of the dating website-->
 <!--*/-->
 <!doctype html>
 <html lang="en">
@@ -42,14 +42,14 @@
 <!--Creating the container div-->
 <div class="container-fluid" id="main">
     <!--Creating the form-->
-    <form action="summary" method="post">
+    <form action="../dating" method="post">
         <!--Creating a fieldset-->
         <fieldset class="form-group shadow rounded">
             <!--Creating a div to hold personal info-->
             <div class="text-left form-check">
                 <div class="float-right text-center form-check">
                     <img id="pro" src="../dating/images/profile.png" class="text-center  img-fluid"
-                         alt="Default Profile Picture" style=" width: 200px;">
+                         alt="Default Profile Picture" style=" width: 350px;">
 
                     <h3 class="text-left">Biography</h3>
                     <p class="text-left">{{ @SESSION.bio }}</p>
@@ -62,16 +62,16 @@
                     <li class="list-group-item">Email: {{ @SESSION.email }}</li>
                     <li class="list-group-item">State: {{ @SESSION.state }}</li>
                     <li class="list-group-item">Seeking: {{ @SESSION.seeking }}</li>
-                    <li class='list-group-item'>Interests: $interest</li>
+                    <li class='list-group-item'>Interests: {{ @SESSION.interests }}</li>
                 </ul>
-
+                <div class="form-check text-center">
+                    <button type="submit" class="btn btn-primary btn-lg mt-5">
+                        Contact Me
+                    </button>
+                </div>
             </div>
             <!--Creating a button-->
-            <div class="form-check text-centert">
-                <button type="submit" class="btn btn-primary btn-lg">
-                    Contact Me
-                </button>
-            </div>
+
         </fieldset>
 
     </form>

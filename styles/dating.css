@@ -1,18 +1,20 @@
-<!--/**-->
+<!--
+/**-->
 <!--* Rajpreet Dhaliwal-->
 <!--* 1/16/20-->
 <!--* /328/dating/styles/dating.css-->
 <!--* stylesheet for the dating website-->
-<!--*/-->
+<!--*/
+-->
 
 /*Body tag style, adds font and gray background*/
-body{
+body {
     background-color: #f8f9fa;
     font-family: 'Pacifico', cursive;
 }
 
 /*Styles for the image element*/
-img{
+img {
     height: 600px;
     width: 30%;
     float: right;
@@ -21,7 +23,7 @@ img{
 }
 
 /*Styles for the fieldset*/
-fieldset{
+fieldset {
     text-align: center;
     display: block;
     margin-left: 2px;
@@ -34,14 +36,14 @@ fieldset{
 }
 
 /*styles for the quote div*/
-#quotes{
+#quotes {
     width: 50%;
     margin-left: 10%;
     /*box-shadow: 5px 5px 5px 5px #6c757d;*/
 }
 
 /*Style the p elements*/
-p{
+p {
     font-family: 'Open Sans', sans-serif;
 }
 
