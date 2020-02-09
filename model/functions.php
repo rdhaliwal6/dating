@@ -11,3 +11,23 @@ function interest(array $x)
     }
     return $int;
 }
+
+function validName(){
+
+}
+
+function validAge(){
+
+}
+
+function validPhone(){
+
+}
+
+function validEmail(){
+
+}
+
+function validInterests(){
+
+}
