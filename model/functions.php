@@ -14,53 +14,118 @@ function interest(array $x)
 
 function validation()
 {
+    global $f3;
     $isValid = true;
-    $phoneRegex = "/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/";
 
+    $isValid = validName();
+    $isValid = validAge();
+    $isValid = validPhone();
+
+
+
+    if (($_POST["gender"]) == "") {
+        $f3->set("errors['genders']", "Please choose a gender");
+        $isValid = false;
+    }
+
+
+
+
+    $_SESSION['gender'] = $_POST['gender'];
+
+
+    return $isValid;
+}
+
+function validName(){
+    global $f3;
+
+    $isValid = true;
     $fname = $_POST["first-name"];
     if ($fname == "" || is_numeric($fname)) {
-        echo '<style type="text/css">
-        #fName-err {
-            visibility: visible;
-        }
-        </style>';
+        $f3->set("errors['firstName']", "Please enter a first name");
+
         $isValid = false;
     }
 
     $lname = $_POST["last-name"];
     if ($lname == "" || is_numeric($lname)) {
-        echo '<style type="text/css">
-        #lName-err {
-            visibility: visible;
-        }
-        </style>';
-        $isValid = false;
-    }
-
-    $age = $_POST["age"];
-    if ($age == "" || !is_numeric($age)) {
-        echo '<style type="text/css">
-        #age-err {
-            visibility: visible;
-        }
-        </style>';
-        $isValid = false;
-    }
-
-    if (($_POST["phone"]) == "" AND !preg_match($phoneRegex, trim($_POST['phone']))) {
-        echo '<style type="text/css">
-        #phone-err {
-            visibility: visible;
-        }
-        </style>';
+        $f3->set("errors['lastName']", "Please enter a last name");
         $isValid = false;
     }
 
     $_SESSION['fName'] = $_POST['first-name'];
     $_SESSION['lName'] = $_POST['last-name'];
-    $_SESSION['age'] = $_POST['age'];
-    $_SESSION['gender'] = $_POST['optradio'];
-    $_SESSION['phone'] = $_POST['phone'];
 
     return $isValid;
+}
+
+function validAge(){
+    global $f3;
+
+    $isValid = true;
+
+    $age = $_POST["age"];
+    if ($age == "" || !is_numeric($age) || ($age < 18 || $age > 100 )) {
+        $f3->set("errors['age']", "Please enter a valid age");
+        $isValid = false;
+    }
+    $_SESSION['age'] = $_POST['age'];
+    return $isValid;
+}
+
+function validPhone()
+{
+$phoneRegex = "/^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/";
+
+    global $f3;
+
+    $isValid = true;
+    if (($_POST["phone"]) == "" AND !preg_match($phoneRegex, trim($_POST['phone']))) {
+        $f3->set("errors['phone']", "Please enter a valid phone number");
+        $isValid = false;
+    }
+
+    $_SESSION['phone'] = $_POST['phone'];
+    return $isValid;
+}
+
+function emailValid(){
+    global $f3;
+    $emailRegex = "/[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i";
+
+    $isValid = true;
+    $email = $_POST['email'];
+
+    if($email == "" || !preg_match($emailRegex, trim($email))){
+        $f3->set("errors['email']", "Please enter a valid email");
+            $isValid= false;
+        }
+    $_SESSION['bio'] = $_POST['bio'];
+    $_SESSION['email'] = $email;
+    $_SESSION['state'] = $_POST['state'];
+    $_SESSION['seeking'] = $_POST['optradio'];
+
+    return $isValid;
+}
+
+
+function Interests(array $pick, array $interest){
+    {
+        global $f3;
+        for ( $i = 0; $i< sizeof($interest); $i++)
+        {
+            for($j = 0; $j<sizeof($pick); $j++){
+                if($interest[i]==$pick[j]){
+                    break;
+                }
+                if($j==$i) {
+                    return false;
+                }
+                $f3->set("errors['interest']", "Please enter a valid interest");
+
+                return true;
+                }
+        }
+    }
 }

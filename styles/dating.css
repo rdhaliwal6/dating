@@ -46,8 +46,9 @@ fieldset {
 p {
     font-family: 'Open Sans', sans-serif;
 }
+
 .err{
-    visibility: hidden;
+    color: red;
 }
 /*style for blockquote footer*/
 /*.blockquote-footer{*/

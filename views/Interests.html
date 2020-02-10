@@ -42,13 +42,15 @@
 <!--Creating the container div-->
 <div class="container-fluid" id="main">
     <!--Creating the form-->
-    <form action="summary" method="post">
+    <form action="#" method="post">
         <!--Creating a fieldset-->
         <fieldset class="form-group shadow rounded">
             <!--Creating a div to hold personal info-->
             <div>
                 <div class="form-check text-left">
-                    <h1 class="text-left">Interests</h1>
+                    <h1 class="text-left">Interests<check if="{{ @errors['interest'] }}">
+                        <span class="err">{{ @errors['interest'] }}</span>
+                    </check></h1>
                     <hr>
 
                     <div class="form-check form-row">
