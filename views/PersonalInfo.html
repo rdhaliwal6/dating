@@ -42,7 +42,7 @@
 <!--Creating the container div-->
 <div class="container-fluid" id="main">
     <!--Creating the form-->
-    <form action="profile" method="post">
+    <form action="#" method="post">
         <!--Creating a fieldset-->
         <fieldset class="form-group shadow rounded">
             <!--Creating a div to hold personal info-->
@@ -61,38 +61,44 @@
 
                 <div class="form-check col-7">
                     <!--First Name-->
-                    <label for="first-name" class="float-left">First name<span class="text-danger err float-left"
-                                                                               id="fName-err"></span></label>
-                    <input type="text" class="form-control required-input" id="first-name" name="first-name">
+                    <label for="first-name" class="float-left" >First name<span class="text-danger err float-left"
+                                                                               id="fName-err">*</span></label>
+                    <input type="text" class="form-control required-input" id="first-name" name="first-name" value="{{ @SESSION.fName }}">
                 </div>
                 <div class="form-check col-7">
                     <!--Last Name-->
                     <label for="last-name" class="float-left">Last name<span class="text-danger err float-left"
-                                                                             id="lName-err"></span></label>
-                    <input type="text" class="form-control required-input" id="last-name" name="last-name">
+                                                                             id="lName-err">*</span></label>
+                    <input type="text" class="form-control required-input" id="last-name" name="last-name" value="{{ @SESSION.lName }}">
                 </div>
                 <div class="form-check col-7">
                     <!-- Age -->
-                    <label class="float-left" for="age">Age<span class="text-danger err" id="age-err"></span></label>
-                    <input type="text" class="form-control required-input" name="age" id="age">
+                    <label class="float-left" for="age"><span class="text-danger err" id="age-err">*</span>Age</label>
+                    <input type="text" class="form-control required-input" name="age" id="age" value="{{ @SESSION.age }}">
                 </div>
                 <div class="form-check col-7">
                     <!--Gender-->
-                    <label class="float-left">Gender</label>
+                    <label class="float-left"><span class="text-danger err" id="gender-err">*</span>Gender</label>
                     </br>
-                    <label class="radio-inline float-left">
-                        <input type="radio" name="optradio" value="Male" checked>Male
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="optradio" value="Female">Female
-                    </label>
+                    <repeat group="{{ @genders }}" value="{{ @genderOptions }}">
+                        <label class="form-check-label" ><input type="radio"
+                                      name="genders"
+                                      value="{{ @genderOptions }}" >{{ @genderOptions }}
+                        </label>
+                    </repeat>
+<!--                    <label class="radio-inline float-left">-->
+<!--                        <input type="radio" name="optradio" value="Male" checked>Male-->
+<!--                    </label>-->
+<!--                    <label class="radio-inline">-->
+<!--                        <input type="radio" name="optradio" value="Female">Female-->
+<!--                    </label>-->
                     <br>
                 </div>
                 <div class="form-check col-7">
                     <!--Phone Number-->
-                    <label class="float-left" for="phone">Phone number<span class="text-danger err"
-                                                                            id="phone-err"></span></label>
-                    <input type="text" class="form-control required-input" name="phone-number" id="phone">
+                    <label class="float-left" for="phone"><span class="text-danger err"
+                                                                            id="phone-err">*</span>Phone number</label>
+                    <input type="text" class="form-control required-input" name="phone" id="phone" value="{{ @SESSION.phone }}">
                 </div>
                 <!--Creating a button-->
                 <div class="form-check">
