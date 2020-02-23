@@ -52,7 +52,7 @@
                          alt="Default Profile Picture" style=" width: 350px;">
 
                     <h3 class="text-left">Biography</h3>
-                    <p class="text-left">{{ @SESSION.bio }}</p>
+                    <p class="text-left">{{ @SESSION.member-> }}</p>
                 </div>
                 <ul class="ul list-group">
                     <li class="list-group-item">Name: {{ @SESSION.fName }} {{ @SESSION.lName }}</li>
@@ -62,6 +62,7 @@
                     <li class="list-group-item">Email: {{ @SESSION.email }}</li>
                     <li class="list-group-item">State: {{ @SESSION.state }}</li>
                     <li class="list-group-item">Seeking: {{ @SESSION.seeking }}</li>
+                    <checkif="{{@SESSION.premium}}=="isPremium"
                     <li class='list-group-item'>Interests: {{ @SESSION.interests }}</li>
                 </ul>
                 <div class="form-check text-center">

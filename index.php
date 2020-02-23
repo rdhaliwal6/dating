@@ -1,10 +1,10 @@
 <?php
-session_start();
 //turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require_once("vendor/autoload.php");
+session_start();
 require_once("model/functions.php");
 
 
@@ -76,12 +76,21 @@ $f3->route('GET /', function () {
 
 $f3->route('POST|GET /personal', function ($f3) {
     $view = new Template();
+
     if(validation()){
+        if($_POST['premiumMember'] == "isPremium")
+        {
+            $_SESSION['member'] = new PremiumMember($_POST['first-name'], $_POST['last-name'], $_POST['age']
+                ,$_POST['gender'],$_POST['phone']);
+        }
+        else
+        {
+            $_SESSION['member'] = new Member($_POST['first-name'], $_POST['last-name'], $_POST['age']
+                ,$_POST['gender'],$_POST['phone']);
+        }
         $f3->reroute('profile');
     }
-
     $f3->set("gender", $_POST['gender']);
-
     echo $view->render('views/PersonalInfo.html');
 
 });
@@ -90,7 +99,17 @@ $f3->route('POST|GET /profile', function ($f3)
     {
     $view = new Template();
     if(emailValid()){
-        $f3->reroute('interest');
+        $_SESSION['member']->setEmail($_POST['email']);
+        $_SESSION['member']->setState($_POST['state']);
+        $_SESSION['member']->setBio($_POST['bio']);
+        $_SESSION['member']->setSeeking($_POST['optradio']);
+        $_SESSION['premium'] = $_POST['premiumMember'];
+        if($_POST['premiumMember'] == "isPremium") {
+            $f3->reroute('interest');
+        }
+        else{
+            $f3->reroute('summary');
+        }
     }
 
     echo $view->render('views/Profile.html');
@@ -110,13 +129,9 @@ $f3->route('POST|GET /interest', function ($f3) {
 
 $f3->route('POST|GET /summary', function () {
     $view = new Template();
-    if(sizeof($_POST['interest']) > 0) {
-        $_SESSION['interests'] = interest($_POST['interest']);
-    }
-    else
-    {
-        $_SESSION['interests'] = "None";
-    }
+
+    $_SESSION['interests'] = "None";
+
     echo $view->render('views/Summary.html');
 });
 

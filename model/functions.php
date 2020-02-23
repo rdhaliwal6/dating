@@ -20,20 +20,7 @@ function validation()
     $isValid = validName();
     $isValid = validAge();
     $isValid = validPhone();
-
-
-
-    if (($_POST["gender"]) == "") {
-        $f3->set("errors['genders']", "Please choose a gender");
-        $isValid = false;
-    }
-
-
-
-
     $_SESSION['gender'] = $_POST['gender'];
-
-
     return $isValid;
 }
 
@@ -101,31 +88,11 @@ function emailValid(){
         $f3->set("errors['email']", "Please enter a valid email");
             $isValid= false;
         }
+
     $_SESSION['bio'] = $_POST['bio'];
     $_SESSION['email'] = $email;
     $_SESSION['state'] = $_POST['state'];
     $_SESSION['seeking'] = $_POST['optradio'];
 
     return $isValid;
-}
-
-
-function Interests(array $pick, array $interest){
-    {
-        global $f3;
-        for ( $i = 0; $i< sizeof($interest); $i++)
-        {
-            for($j = 0; $j<sizeof($pick); $j++){
-                if($interest[i]==$pick[j]){
-                    break;
-                }
-                if($j==$i) {
-                    return false;
-                }
-                $f3->set("errors['interest']", "Please enter a valid interest");
-
-                return true;
-                }
-        }
-    }
 }
