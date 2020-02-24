@@ -48,88 +48,90 @@
             <!--Creating a div to hold personal info-->
             <div>
                 <div class="form-check text-left">
-                    <h1 class="text-left">Interests<check if="{{ @errors['interest'] }}">
-                        <span class="err">{{ @errors['interest'] }}</span>
-                    </check></h1>
+                    <h1 class="text-left">Interests</h1>
                     <hr>
 
                     <div class="form-check form-row">
-                        <h4 class="row">In-door Interests</h4>
+                        <h4 class="row">In-door Interests<check if="{{ @errors['inDoor'] }}">
+                            <span class="err">{{ @errors['inDoor'] }}</span>
+                        </check></h4>
                         <div>&nbsp;</div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="TV"
-                                   name="interest[]">
+                                   name="inDoor[]">
                             <label class="form-check-label" for="inlineCheckbox1">TV</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Movies"
-                                   name="interest[]">
+                                   name="inDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Movies</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Cooking"
-                                   name="interest[]">
+                                   name="inDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Cooking</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="Board Games"
-                                   name="interest[]">
+                                   name="inDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Board Games</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="Puzzles"
-                                   name="interest[]">
+                                   name="inDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Puzzles</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="Reading"
-                                   name="interest[]">
+                                   name="inDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Reading</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox7" value="Playing Cards"
-                                   name="interest[]">
+                                   name="inDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Playing Cards</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox8" value="Video Games"
-                                   name="interest[]">
+                                   name="inDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Video Games</label>
                         </div>
                         <div>&nbsp;</div>
                     </div>
 
                     <div class="form-check float-left form-row">
-                        <h4 class="row">Out-door Interests</h4>
+                        <h4 class="row">Out-door Interests<check if="{{ @errors['outDoor'] }}">
+                            <span class="err">{{ @errors['outDoor'] }}</span>
+                        </check></h4>
                         <div>&nbsp;</div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox11" value="Hiking"
-                                   name="interest[]">
+                                   name="outDoor[]">
                             <label class="form-check-label" for="inlineCheckbox1">Hiking</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox22" value="Biking"
-                                   name="interest[]">
+                                   name="outDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Biking</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox33" value="Swimming"
-                                   name="interest[]">
+                                   name="outDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Swimming</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox44" value="Collecting"
-                                   name="interest[]">
+                                   name="outDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Collecting</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox55" value="Walking"
-                                   name="interest[]">
+                                   name="outDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Walking</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="inlineCheckbox66" value="Climbing"
-                                   name="interest[]">
+                                   name="outDoor[]">
                             <label class="form-check-label" for="inlineCheckbox2">Climbing</label>
                         </div>
                     </div>

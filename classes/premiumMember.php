@@ -17,7 +17,7 @@ class PremiumMember extends Member
      */
     public function setInDoorInterests($inDoorInterests)
     {
-        $this->_inDoorInterests = $inDoorInterests;
+        $this->_inDoorInterests = array_push($inDoorInterests);
     }
 
     /**
@@ -33,6 +33,6 @@ class PremiumMember extends Member
      */
     public function setOutDoorInterests($outDoorInterests)
     {
-        $this->_outDoorInterests = $outDoorInterests;
+        $this->_outDoorInterests = array_push($outDoorInterests);
     }
 }

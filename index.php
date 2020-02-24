@@ -11,9 +11,7 @@ require_once("model/functions.php");
 //create an instance of the base class
 $f3 = Base::instance();
 $f3->set('genders', array('Male', 'Female'));
-//$outInterests = array('TV','Movies', 'Cooking', 'Board Games','Puzzles','Reading'
-//,'Playing Cards','Video Games','Hiking','Biking','Swimming','Collecting','Walking','Climbing');
-//$inInterests = array('Hiking','Biking','Swimming','Collecting','Walking','Climbing');
+
 $f3->set('states' , array(
     'AL'=>'Alabama',
     'AK'=>'Alaska',
@@ -76,8 +74,8 @@ $f3->route('GET /', function () {
 
 $f3->route('POST|GET /personal', function ($f3) {
     $view = new Template();
-
     if(validation()){
+        $_SESSION['premium'] = $_POST['premiumMember'];
         if($_POST['premiumMember'] == "isPremium")
         {
             $_SESSION['member'] = new PremiumMember($_POST['first-name'], $_POST['last-name'], $_POST['age']
@@ -103,35 +101,35 @@ $f3->route('POST|GET /profile', function ($f3)
         $_SESSION['member']->setState($_POST['state']);
         $_SESSION['member']->setBio($_POST['bio']);
         $_SESSION['member']->setSeeking($_POST['optradio']);
-        $_SESSION['premium'] = $_POST['premiumMember'];
-        if($_POST['premiumMember'] == "isPremium") {
+        if($_SESSION['premium'] == "isPremium") {
             $f3->reroute('interest');
         }
         else{
             $f3->reroute('summary');
         }
     }
-
     echo $view->render('views/Profile.html');
 });
 
 $f3->route('POST|GET /interest', function ($f3) {
     $view = new Template();
-    $outInterests = array('TV','Movies', 'Cooking', 'Board Games','Puzzles','Reading'
-    ,'Playing Cards','Video Games','Hiking','Biking','Swimming','Collecting','Walking','Climbing');
-    if(isset($_POST['interest'])) {
-//        if (!interests($_POST['interest'], $outInterests)) {
+    $once = false;
+    $inInterests = array('TV','Movies', 'Cooking', 'Board Games','Puzzles','Reading'
+    ,'Playing Cards','Video Games');
+    $outInterests = array('Hiking','Biking','Swimming','Collecting','Walking','Climbing');
+    var_dump($_POST['outDoor[]']);
+    var_dump($_POST['inDoor[]']);
+    if($once) {
+        if (outDoor($_POST['outDoor[]'], $outInterests) && inDoor($_POST['inDoor[]'], $inInterests)) {
             $f3->reroute('summary');
-//        }
+        }
     }
+    $once = true;
     echo $view->render('views/Interests.html');
 });
 
 $f3->route('POST|GET /summary', function () {
     $view = new Template();
-
-    $_SESSION['interests'] = "None";
-
     echo $view->render('views/Summary.html');
 });
 
