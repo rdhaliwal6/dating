@@ -9,7 +9,11 @@ class PremiumMember extends Member
      */
     public function getInDoorInterests()
     {
-        return $this->_inDoorInterests;
+        if(empty($this->_inDoorInterests)) {
+            return "";
+        } else {
+            return implode(" ", $this->_inDoorInterests);
+        }
     }
 
     /**
@@ -17,7 +21,7 @@ class PremiumMember extends Member
      */
     public function setInDoorInterests($inDoorInterests)
     {
-        $this->_inDoorInterests = array_push($inDoorInterests);
+        $this->_inDoorInterests = $inDoorInterests;
     }
 
     /**
@@ -25,7 +29,11 @@ class PremiumMember extends Member
      */
     public function getOutDoorInterests()
     {
-        return $this->_outDoorInterests;
+        if(empty($this->_outDoorInterests)) {
+            return "";
+        } else {
+            return implode(" ", $this->_outDoorInterests);
+        }
     }
 
     /**
@@ -33,6 +41,6 @@ class PremiumMember extends Member
      */
     public function setOutDoorInterests($outDoorInterests)
     {
-        $this->_outDoorInterests = array_push($outDoorInterests);
+        $this->_outDoorInterests = $outDoorInterests;
     }
 }

@@ -10,8 +10,12 @@ require_once("model/functions.php");
 
 //create an instance of the base class
 $f3 = Base::instance();
-$f3->set('genders', array('Male', 'Female'));
+$controller = new DatingController($f3);
 
+$f3->set('genders', array('Male', 'Female'));
+$f3->set('inInterests', array('TV','Movies', 'Cooking', 'Board Games','Puzzles','Reading'
+,'Playing Cards','Video Games'));
+$f3->set('outInterests', array('Hiking','Biking','Swimming','Collecting','Walking','Climbing'));
 $f3->set('states' , array(
     'AL'=>'Alabama',
     'AK'=>'Alaska',
@@ -68,63 +72,64 @@ $f3->set('states' , array(
 
 //define a default route
 $f3->route('GET /', function () {
-    $view = new Template();
-    echo $view->render('views/home.html');
+    $GLOBALS['controller']->home();
 });
 
 $f3->route('POST|GET /personal', function ($f3) {
-    $view = new Template();
-    if(validation()){
-        $_SESSION['premium'] = $_POST['premiumMember'];
-        if($_POST['premiumMember'] == "isPremium")
-        {
-            $_SESSION['member'] = new PremiumMember($_POST['first-name'], $_POST['last-name'], $_POST['age']
-                ,$_POST['gender'],$_POST['phone']);
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (validation()) {
+            $_SESSION['premium'] = $_POST['premiumMember'];
+            if ($_POST['premiumMember'] == "isPremium") {
+                $_SESSION['member'] = new PremiumMember($_POST['first-name'], $_POST['last-name'], $_POST['age']
+                    , $_POST['gender'], $_POST['phone']);
+            } else {
+                $_SESSION['member'] = new Member($_POST['first-name'], $_POST['last-name'], $_POST['age']
+                    , $_POST['gender'], $_POST['phone']);
+            }
+            $f3->reroute('profile');
         }
-        else
-        {
-            $_SESSION['member'] = new Member($_POST['first-name'], $_POST['last-name'], $_POST['age']
-                ,$_POST['gender'],$_POST['phone']);
-        }
-        $f3->reroute('profile');
+        $f3->set("gender", $_POST['gender']);
     }
-    $f3->set("gender", $_POST['gender']);
-    echo $view->render('views/PersonalInfo.html');
-
+    $GLOBALS['controller']->personalInfo();
 });
 
 $f3->route('POST|GET /profile', function ($f3)
     {
     $view = new Template();
-    if(emailValid()){
-        $_SESSION['member']->setEmail($_POST['email']);
-        $_SESSION['member']->setState($_POST['state']);
-        $_SESSION['member']->setBio($_POST['bio']);
-        $_SESSION['member']->setSeeking($_POST['optradio']);
-        if($_SESSION['premium'] == "isPremium") {
-            $f3->reroute('interest');
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (emailValid()) {
+                $_SESSION['member']->setEmail($_POST['email']);
+                $_SESSION['member']->setState($_POST['state']);
+                $_SESSION['member']->setBio($_POST['bio']);
+                $_SESSION['member']->setSeeking($_POST['optradio']);
+                if ($_SESSION['premium'] == "isPremium") {
+                    $f3->reroute('interest');
+                } else {
+                    $f3->reroute('summary');
+                }
+            }
         }
-        else{
-            $f3->reroute('summary');
-        }
-    }
     echo $view->render('views/Profile.html');
 });
 
 $f3->route('POST|GET /interest', function ($f3) {
     $view = new Template();
-    $once = false;
-    $inInterests = array('TV','Movies', 'Cooking', 'Board Games','Puzzles','Reading'
-    ,'Playing Cards','Video Games');
-    $outInterests = array('Hiking','Biking','Swimming','Collecting','Walking','Climbing');
-    var_dump($_POST['outDoor[]']);
-    var_dump($_POST['inDoor[]']);
-    if($once) {
-        if (outDoor($_POST['outDoor[]'], $outInterests) && inDoor($_POST['inDoor[]'], $inInterests)) {
-            $f3->reroute('summary');
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $out = $_POST['outDoor'];
+        $in = $_POST['inDoor'];
+
+        var_dump($in);
+        var_dump($out);
+        $_SESSION['member']->setInDoorInterests($in);
+        $_SESSION['member']->setOutDoorInterests($out);
+
+        if (outDoor($out, $f3->get('outInterests')) &&
+            inDoor($in, $f3->get('inInterests')))
+        {
+
+            $f3->reroute('/summary');
         }
     }
-    $once = true;
     echo $view->render('views/Interests.html');
 });
 

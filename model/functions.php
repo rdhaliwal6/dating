@@ -100,31 +100,36 @@ function emailValid(){
 function outDoor($user, $list)
 {
     global $f3;
-    if ($user == "") {
-        return true;
-    } else {
-        foreach ($user as $value) {
-            if (!in_array($value, $list)) {
-                $f3->set("errors['outDoor']", "Invalid Entry");
-                return false;
-            }
-        }
+    if(sizeof($user) == 0 ) {
         return true;
     }
+    else
+        {
+            foreach ($user as $value) {
+                if (!in_array($value, $list)) {
+                    $f3->set("errors['outDoor']", "Invalid Entry");
+                    return false;
+                }
+            }
+        }
+    return true;
+
 }
 
 function inDoor($user, $list)
 {
     global $f3;
-    if ($user == "") {
+    if (sizeof($user) == 0) {
         return true;
-    } else {
+    }
+    else
+        {
         foreach ($user as $value) {
             if (!in_array($value, $list)) {
                 $f3->set("errors['inDoor']", "Invalid Entry");
                 return false;
             }
         }
-        return true;
     }
+    return true;
 }
