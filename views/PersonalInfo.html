@@ -61,42 +61,53 @@
 
                 <div class="form-check col-7">
                     <!--First Name-->
-                    <label for="first-name" class="float-left" >First name <check if="{{ @errors['firstName'] }}">
-                        <span class="err">{{ @errors['firstName'] }}</span>
-                    </check></label>
-                    <input type="text" class="form-control required-input" id="first-name" name="first-name" value="{{ @SESSION.fName }}">
+                    <label for="first-name" class="float-left">First name
+                        <check if="{{ @errors['firstName'] }}">
+                            <span class="err">{{ @errors['firstName'] }}</span>
+                        </check>
+                    </label>
+                    <input type="text" class="form-control required-input" id="first-name" name="first-name"
+                           value="{{ @SESSION.fName }}">
                 </div>
 
                 <div class="form-check col-7">
                     <!--Last Name-->
-                    <label for="last-name" class="float-left">Last name<check if="{{ @errors['lastName'] }}">
-                        <span class="err">{{ @errors['lastName'] }}</span>
-                    </check></label>
-                    <input type="text" class="form-control required-input" id="last-name" name="last-name" value="{{ @SESSION.lName }}">
+                    <label for="last-name" class="float-left">Last name
+                        <check if="{{ @errors['lastName'] }}">
+                            <span class="err">{{ @errors['lastName'] }}</span>
+                        </check>
+                    </label>
+                    <input type="text" class="form-control required-input" id="last-name" name="last-name"
+                           value="{{ @SESSION.lName }}">
                 </div>
 
                 <div class="form-check col-7">
                     <!-- Age -->
-                    <label class="float-left" for="age">Age<check if="{{ @errors['age'] }}">
-                        <span class="err">{{ @errors['age'] }}</span>
-                    </check></label>
-                    <input type="text" class="form-control required-input" name="age" id="age" value="{{ @SESSION.age }}">
+                    <label class="float-left" for="age">Age
+                        <check if="{{ @errors['age'] }}">
+                            <span class="err">{{ @errors['age'] }}</span>
+                        </check>
+                    </label>
+                    <input type="text" class="form-control required-input" name="age" id="age"
+                           value="{{ @SESSION.age }}">
                 </div>
 
                 <div class="form-check col-7">
                     <!--Gender-->
-                    <label class="float-left">Gender<check if="{{ @errors['genders'] }}">
-                        <span class="err">{{ @errors['genders'] }}</span>
-                    </check></label>
+                    <label class="float-left">Gender
+                        <check if="{{ @errors['genders'] }}">
+                            <span class="err">{{ @errors['genders'] }}</span>
+                        </check>
+                    </label>
                     </br>
                     <repeat group="{{ @genders }}" value="{{ @genderOptions }}">
-                        <label class="form-check-label" ><input type="radio"
-                                      name="gender"
-                                      value="{{ @genderOptions }}"
+                        <label class="form-check-label"><input type="radio"
+                                                               name="gender"
+                                                               value="{{ @genderOptions }}"
                             <check if="{{@gender==@genderOptions}}">
                                 checked ="checked"
                             </check>
-                        >{{ @genderOptions }}
+                            >{{ @genderOptions }}
                         </label>
                     </repeat>
                     <br>
@@ -104,17 +115,21 @@
 
                 <div class="form-check col-7">
                     <!--Phone Number-->
-                    <label class="float-left" for="phone">Phone number<check if="{{ @errors['phone'] }}">
-                        <span class="err">{{ @errors['phone'] }}</span>
-                    </check></label>
-                    <input type="text" class="form-control required-input" name="phone" id="phone" value="{{ @SESSION.phone }}">
+                    <label class="float-left" for="phone">Phone number
+                        <check if="{{ @errors['phone'] }}">
+                            <span class="err">{{ @errors['phone'] }}</span>
+                        </check>
+                    </label>
+                    <input type="text" class="form-control required-input" name="phone" id="phone"
+                           value="{{ @SESSION.phone }}">
                 </div>
 
                 <div class="form-check col-7">
                     <!-- premium Account-->
                     <label class="float-left">Premium Membership</label>
                     <br>
-                    <input type="checkbox" class="float-left" id="premiumMember" value="isPremium" name="premiumMember" checked>
+                    <input type="checkbox" class="float-left" id="premiumMember" value="isPremium" name="premiumMember"
+                           checked>
                     <label class="float-left" for="premiumMember">Sign me up for a Premium Account!</label>
                 </div>
 

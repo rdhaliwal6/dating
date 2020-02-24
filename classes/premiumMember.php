@@ -1,7 +1,17 @@
 <?php
+
+/**
+ * Class PremiumMember
+ */
 class PremiumMember extends Member
 {
+    /**
+     * @var array
+     */
     private $_inDoorInterests = array();
+    /**
+     * @var array
+     */
     private $_outDoorInterests = array();
 
     /**
@@ -9,7 +19,7 @@ class PremiumMember extends Member
      */
     public function getInDoorInterests()
     {
-        if(empty($this->_inDoorInterests)) {
+        if (empty($this->_inDoorInterests)) {
             return "";
         } else {
             return implode(" ", $this->_inDoorInterests);
@@ -29,7 +39,7 @@ class PremiumMember extends Member
      */
     public function getOutDoorInterests()
     {
-        if(empty($this->_outDoorInterests)) {
+        if (empty($this->_outDoorInterests)) {
             return "";
         } else {
             return implode(" ", $this->_outDoorInterests);

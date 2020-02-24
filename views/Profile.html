@@ -53,16 +53,19 @@
                 </div>
 
                 <div class="form-check float-right col-5">
-                    <label for="exampleFormControlTextarea1" class="float-left" >Biography</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="bio" >{{ @SESSION.bio }}</textarea>
+                    <label for="exampleFormControlTextarea1" class="float-left">Biography</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="bio">{{ @SESSION.bio }}</textarea>
                 </div>
 
                 <div class="form-check col-7 row-1">
                     <!--email-->
-                    <label for="email" class="float-left">Email<check if="{{ @errors['email'] }}">
-                        <span class="err">{{ @errors['email'] }}</span>
-                    </check></label>
-                    <input type="email" class="form-control required-input" id="email" name="email" value="{{ @SESSION.email }}">
+                    <label for="email" class="float-left">Email
+                        <check if="{{ @errors['email'] }}">
+                            <span class="err">{{ @errors['email'] }}</span>
+                        </check>
+                    </label>
+                    <input type="email" class="form-control required-input" id="email" name="email"
+                           value="{{ @SESSION.email }}">
                 </div>
 
 
@@ -84,10 +87,14 @@
                     <label class="float-left">Seeking</label>
                     </br>
                     <label class="radio-inline float-left">
-                        <input type="radio" name="optradio" value="Male" <check if="{{@SESSION.seeking}}==Male">checked</check> >Male
+                        <input type="radio" name="optradio" value="Male"
+                        <check if="{{@SESSION.seeking}}==Male">checked</check>
+                        >Male
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="optradio" value="Female" <check if="{{@SESSION.seeking}}==Female">checked</check>>Female
+                        <input type="radio" name="optradio" value="Female"
+                        <check if="{{@SESSION.seeking}}==Female">checked</check>
+                        >Female
                     </label>
                     <br>
                 </div>

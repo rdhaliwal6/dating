@@ -1,19 +1,55 @@
 <?php
+
 /**
  * Class Member
  */
 class Member
 {
+    /**
+     * @var
+     */
     private $_fname;
+    /**
+     * @var
+     */
     private $_lname;
+    /**
+     * @var
+     */
     private $_age;
+    /**
+     * @var
+     */
     private $_gender;
+    /**
+     * @var
+     */
     private $_phone;
+    /**
+     * @var
+     */
     private $_email;
+    /**
+     * @var
+     */
     private $_state;
+    /**
+     * @var
+     */
     private $_seeking;
+    /**
+     * @var
+     */
     private $_bio;
 
+    /**
+     * Member constructor.
+     * @param $fname
+     * @param $lname
+     * @param $age
+     * @param $gender
+     * @param $phone
+     */
     public function __construct($fname, $lname, $age, $gender, $phone)
     {
         $this->_fname = $fname;

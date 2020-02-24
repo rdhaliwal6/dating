@@ -55,7 +55,9 @@
                     <p class="text-left">{{ @SESSION.member->getBio()}}</p>
                 </div>
                 <ul class="ul list-group">
-                    <li class="list-group-item">Name: {{ @SESSION.member->getFname() }} {{ @SESSION.member->getLname() }}</li>
+                    <li class="list-group-item">Name: {{ @SESSION.member->getFname() }} {{ @SESSION.member->getLname()
+                        }}
+                    </li>
                     <li class="list-group-item">Gender: {{ @SESSION.member->getGender() }}</li>
                     <li class="list-group-item">Age: {{ @SESSION.member->getAge() }}</li>
                     <li class="list-group-item">Phone: {{ @SESSION.member->getPhone() }}</li>
@@ -63,7 +65,9 @@
                     <li class="list-group-item">State: {{ @SESSION.member->getState() }}</li>
                     <li class="list-group-item">Seeking: {{ @SESSION.member->getSeeking() }}</li>
                     <check if="{{ @SESSION.premium }} == 'isPremium'">
-                    <li class='list-group-item'>Interests: {{ @SESSION.member->getOutDoorInterests() }} {{ @SESSION.member->getInDoorInterests() }}</li>
+                        <li class='list-group-item'>Interests: {{ @SESSION.member->getOutDoorInterests() }} {{
+                            @SESSION.member->getInDoorInterests() }}
+                        </li>
                     </check>
                 </ul>
                 <div class="form-check text-center">

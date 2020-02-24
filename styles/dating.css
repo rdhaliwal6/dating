@@ -47,9 +47,10 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
-.err{
+.err {
     color: red;
 }
+
 /*style for blockquote footer*/
 /*.blockquote-footer{*/
 /*    margin-left: 10%;*/
