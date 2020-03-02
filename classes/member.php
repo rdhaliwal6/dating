@@ -43,22 +43,44 @@ class Member
     private $_bio;
 
     /**
+     * @var
+     */
+    private $_premium;
+
+    /**
      * Member constructor.
      * @param $fname
      * @param $lname
      * @param $age
      * @param $gender
      * @param $phone
+     * @param $premium
      */
-    public function __construct($fname, $lname, $age, $gender, $phone)
+    public function __construct($fname, $lname, $age, $gender, $phone, $premium)
     {
         $this->_fname = $fname;
         $this->_lname = $lname;
         $this->_age = $age;
         $this->_gender = $gender;
         $this->_phone = $phone;
+        $this->_premium = $premium;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPremium()
+    {
+        return $this->_premium;
+    }
+
+    /**
+     * @param mixed $premium
+     */
+    public function setPremium($premium)
+    {
+        $this->_premium = $premium;
+    }
     /**
      * @return mixed
      */

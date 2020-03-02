@@ -6,11 +6,13 @@ error_reporting(E_ALL);
 require_once("vendor/autoload.php");
 session_start();
 require_once("model/validation.php");
+require_once('model/database.php');
 //require_once("model/validatorDating.php");
 
 
 //create an instance of the base class
 $f3 = Base::instance();
+$db = new Database();
 $controller = new DatingController($f3);
 
 $f3->set('genders', array('Male', 'Female'));
@@ -88,10 +90,10 @@ $f3->route('POST|GET /personal', function ($f3) {
             $_SESSION['premium'] = $_POST['premiumMember'];
             if ($_POST['premiumMember'] == "isPremium") {
                 $_SESSION['member'] = new PremiumMember($_POST['first-name'], $_POST['last-name'], $_POST['age']
-                    , $_POST['gender'], $_POST['phone']);
+                    , $_POST['gender'], $_POST['phone'], 1);
             } else {
                 $_SESSION['member'] = new Member($_POST['first-name'], $_POST['last-name'], $_POST['age']
-                    , $_POST['gender'], $_POST['phone']);
+                    , $_POST['gender'], $_POST['phone'], 0);
             }
             $f3->reroute('profile');
         }
@@ -139,6 +141,7 @@ $f3->route('POST|GET /interest', function ($f3) {
 $f3->route('POST|GET /summary', function () {
     $GLOBALS['controller']->summary();
 });
+
 
 //run fat free
 $f3->run();

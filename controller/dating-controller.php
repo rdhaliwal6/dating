@@ -66,6 +66,8 @@ class DatingController
     function summary()
     {
         $view = new Template();
+        $GLOBALS['db']->insertMember($_SESSION['member']);
         echo $view->render('views/Summary.html');
     }
+
 }
