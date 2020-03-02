@@ -78,6 +78,12 @@ $f3->route('GET /', function () {
 
 $f3->route('POST|GET /personal', function ($f3) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SESSION['fName'] = $_POST['first-name'];
+        $_SESSION['lName'] = $_POST['last-name'];
+        $_SESSION['age'] = $_POST['age'];
+        $_SESSION['gender'] = $_POST['gender'];
+        $_SESSION['phone'] = $_POST['phone'];
+
         if (validation()) {
             $_SESSION['premium'] = $_POST['premiumMember'];
             if ($_POST['premiumMember'] == "isPremium") {
@@ -101,6 +107,7 @@ $f3->route('POST|GET /profile', function ($f3) {
             $_SESSION['member']->setState($_POST['state']);
             $_SESSION['member']->setBio($_POST['bio']);
             $_SESSION['member']->setSeeking($_POST['optradio']);
+
             if ($_SESSION['premium'] == "isPremium") {
                 $f3->reroute('interest');
             } else {

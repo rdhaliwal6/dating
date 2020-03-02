@@ -40,14 +40,14 @@ function validName()
 
     $isValid = true;
     $fname = $_POST["first-name"];
-    if ($fname == "" || is_numeric($fname)) {
+    if (empty($fname) || is_numeric($fname)) {
         $f3->set("errors['firstName']", "Please enter a first name");
 
         $isValid = false;
     }
 
     $lname = $_POST["last-name"];
-    if ($lname == "" || is_numeric($lname)) {
+    if (empty($lname) || is_numeric($lname)) {
         $f3->set("errors['lastName']", "Please enter a last name");
         $isValid = false;
     }
@@ -68,7 +68,7 @@ function validAge()
     $isValid = true;
 
     $age = $_POST["age"];
-    if ($age == "" || !is_numeric($age) || ($age < 18 || $age > 100)) {
+    if (empty($age) || !is_numeric($age) || ($age < 18 || $age > 100)) {
         $f3->set("errors['age']", "Please enter a valid age");
         $isValid = false;
     }
@@ -86,7 +86,7 @@ function validPhone()
     global $f3;
 
     $isValid = true;
-    if (($_POST["phone"]) == "" AND !preg_match($phoneRegex, trim($_POST['phone']))) {
+    if ($_POST["phone"] == "" AND !preg_match($phoneRegex, trim($_POST['phone']))) {
         $f3->set("errors['phone']", "Please enter a valid phone number");
         $isValid = false;
     }
@@ -106,7 +106,7 @@ function emailValid()
     $isValid = true;
     $email = $_POST['email'];
 
-    if ($email == "" || !preg_match($emailRegex, trim($email))) {
+    if (empty($email) || !preg_match($emailRegex, trim($email))) {
         $f3->set("errors['email']", "Please enter a valid email");
         $isValid = false;
     }
